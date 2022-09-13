@@ -7,10 +7,21 @@ import { useContext, useEffect } from "react";
 import { StrapiContext } from "providers/StrapiPublicProvider";
 import SeoComp from "components/Reusable/Seo";
 import MintPageProper from "components/MintPageProper/MintPageProper";
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import useStakeAction from "hooks/useStakeAction";
 
 const App: React.FC = () => {
   const { seo } = useContext(StrapiContext);
   const { pathname } = useLocation();
+
+  const { wallet, connected } = useWallet();
+  const { connection } = useConnection();
+  const { debouncedRefreshNfts } = useStakeAction();
+
+  useEffect(() => {
+    debouncedRefreshNfts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [connection, wallet, connected]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
