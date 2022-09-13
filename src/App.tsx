@@ -6,8 +6,6 @@ import PageWithNavWrapper from "components/Reusable/Layout/PageWithNavWrapper";
 import { useContext, useEffect } from "react";
 import { StrapiContext } from "providers/StrapiPublicProvider";
 import SeoComp from "components/Reusable/Seo";
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import useStakeAction from "hooks/useStakeAction";
 import MintPageProper from "components/MintPageProper/MintPageProper";
 
 const App: React.FC = () => {
@@ -17,15 +15,6 @@ const App: React.FC = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
-
-  const { wallet, connected } = useWallet();
-  const { connection } = useConnection();
-  const { debouncedRefreshNfts } = useStakeAction();
-
-  useEffect(() => {
-    debouncedRefreshNfts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [connection, wallet, connected]);
 
   return (
     <>
