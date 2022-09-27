@@ -21,7 +21,6 @@ const HomeAboutUsBox: React.FC<HomeAboutUsBoxPropsType> = ({
 }) => {
   const siteData = useAppSelector((state) => state.global.publicSiteData);
   const { nftsTitle, nftsPretitle, nftsSubtitle } = siteData ?? {};
-
   const { pageData: aboutUsInfos } = usePageData("about-us-infos", true);
   // *************** RENDER *************** //
   return (
@@ -31,6 +30,7 @@ const HomeAboutUsBox: React.FC<HomeAboutUsBoxPropsType> = ({
         description={nftsSubtitle}
         title={nftsTitle}
       />
+
       <Container
         disableGutters
         maxWidth={false}

@@ -9,6 +9,7 @@ import SeoComp from "components/Reusable/Seo";
 import MintPageProper from "components/MintPageProper/MintPageProper";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import useStakeAction from "hooks/useStakeAction";
+import MintLoginGuard from "components/MintLoginGuard/MintLoginGuard";
 
 const App: React.FC = () => {
   const { seo } = useContext(StrapiContext);
@@ -31,10 +32,12 @@ const App: React.FC = () => {
     <>
       <PageWithNavWrapper>
         <SeoComp seo={seo} />
-        <Routes>
-          <Route element={<HomePage />} index />
-          <Route element={<MintPageProper />} path="/mint" />
-        </Routes>
+        <MintLoginGuard>
+          <Routes>
+            <Route element={<HomePage />} index />
+            <Route element={<MintPageProper />} path="/mint" />
+          </Routes>
+        </MintLoginGuard>
       </PageWithNavWrapper>
       <SnackbarProvider />
       <BlockingSnabarsProvider />

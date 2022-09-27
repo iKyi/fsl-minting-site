@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import ResponsiveSpace from "components/Reusable/ResponsiveSpace";
 import BenefitsBox from "./BenefitsBox";
 import HomeAboutUsBox from "./HomeAboutUsBox";
 import MintTopBox from "./MintTopBox";
@@ -9,15 +10,12 @@ export type MintHomePagePropsType = {};
 const MintHomePage: React.FC<MintHomePagePropsType> = () => {
   // *************** RENDER *************** //
   return (
-    <Box
-      sx={{
-        px: [2, 2, 4],
-      }}
-    >
+    <Box>
       <MintTopBox />
-      <RoadmapBox />
       <HomeAboutUsBox />
       <BenefitsBox />
+      <ResponsiveSpace />
+      <RoadmapBox />
     </Box>
   );
 };

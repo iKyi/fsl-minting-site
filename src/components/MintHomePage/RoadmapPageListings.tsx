@@ -35,8 +35,7 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
 const ColorlibStepIconRoot = styled("div")<{
   ownerState: { completed?: boolean; active?: boolean };
 }>(({ theme, ownerState }) => ({
-  backgroundColor:
-    theme.palette.mode === "dark" ? theme.palette.grey[700] : "#ccc",
+  backgroundColor: theme.palette.mode === "dark" ? "transparent" : "#ccc",
   zIndex: 1,
   color: "#fff",
   width: 40,
@@ -109,6 +108,7 @@ const RoadmapPageListings: React.FC<RoadmapPageListingsPropsType> = ({
                 <StepLabel
                   sx={{
                     p: 0,
+                    my: "-10px",
                   }}
                   StepIconComponent={() => (
                     <ColorlibStepIcon active={completed} icon={undefined} />
@@ -116,7 +116,7 @@ const RoadmapPageListings: React.FC<RoadmapPageListingsPropsType> = ({
                 >
                   <Box sx={{ px: 1, width: 240 }}>
                     <Typography>{name}</Typography>
-                    <Box sx={{ fontWeight: 300, mt: 1 }}>{description}</Box>
+                    <Box sx={{ fontWeight: 300, mt: 0.5 }}>{description}</Box>
                   </Box>
                 </StepLabel>
               </Step>
