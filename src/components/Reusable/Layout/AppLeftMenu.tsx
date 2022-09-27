@@ -50,7 +50,7 @@ const AppLeftMenu: React.VFC<AppLeftMenuPropsType> = () => {
     {
       icon: HomeIcon,
       url: landingMenuLink?.url ?? "/",
-      active: true,
+
       tooltip: landingMenuLink?.tooltipText ?? null,
       allDisabled: landingMenuLink?.allDisabled ?? false,
     },
@@ -68,6 +68,7 @@ const AppLeftMenu: React.VFC<AppLeftMenuPropsType> = () => {
     },
     {
       icon: DiamondIcon,
+      active: true,
       url: mintMenuLink?.url ?? "/",
       tooltip: mintMenuLink?.tooltipText ?? null,
       allDisabled: mintMenuLink?.allDisabled ?? false,
